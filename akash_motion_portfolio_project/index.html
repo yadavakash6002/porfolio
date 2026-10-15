@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Akash Kumar Yadav — Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+        :root {
+            --bg: #0b0c0b;
+            --fg: #f1f1e9;
+            --muted: #999c92;
+            --acid: #d7ff3f;
+            --line: #292c26;
+
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 20;
+            opacity: .055;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")
+        }
+
+        .nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5vw;
+            border-bottom: 1px solid var(--line);
+            position: relative;
+            z-index: 3
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: -.04em
+        }
+
+        .logo span {
+            color: var(--acid)
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 28px;
+            font: 11px 'DM Mono', monospace;
+            text-transform: uppercase;
+            color: #c3c5bc
+        }
+
+        .navlinks a:hover {
+            color: var(--acid)
+        }
+
+        .availability {
+            font: 10px 'DM Mono', monospace;
+            color: var(--acid);
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--acid);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--acid);
+            animation: pulse 1.5s infinite
+        }
+
+        @keyframes pulse {
+            50% {
+                opacity: .3;
+                transform: scale(.7)
+            }
+        }
+
+        .hero {
+            min-height: calc(100vh - 76px);
+            padding: 10vh 5vw 6vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .eyebrow {
+            font: 11px 'DM Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            animation: rise .7s both
+        }
+
+        .eyebrow:before {
+            content: '';
+            width: 26px;
+            height: 1px;
+            background: var(--acid)
+        }
+
+        .hero h1 {
+            font-size: clamp(58px, 12.2vw, 176px);
+            line-height: .78;
+            letter-spacing: -.095em;
+            font-weight: 600;
+            margin: 7vh 0 4vh;
+            position: relative;
+            z-index: 2
+        }
+
+        .hero h1 .outline {
+            color: transparent;
+            -webkit-text-stroke: 1px #e9eddf
+        }
+
+        .hero h1 .acid {
+            color: var(--acid);
+            display: inline-block;
+            animation: skewIn 1.1s cubic-bezier(.2, .8, .2, 1) both
+        }
+
+        .hero-bottom {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 30px;
+            position: relative;
+            z-index: 2
+        }
+
+        .intro {
+            max-width: 350px;
+            color: #b5b8ad;
+            font-size: 15px;
+            line-height: 1.6
+        }
+
+        .intro strong {
+            color: var(--fg);
+            font-weight: 500
+        }
+
+        .scrollhint {
+            font: 10px 'DM Mono', monospace;
+            color: var(--muted);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .scrollhint span {
+            display: block;
+            width: 44px;
+            height: 1px;
+            background: var(--acid)
+        }
+
+
+        @keyframes float {
+            50% {
+                transform: translateY(-18px) rotate(7deg)
+            }
+        }
+
+        @keyframes orbit {
+            to {
+                transform: rotate(335deg) scaleY(.28)
+            }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes skewIn {
+            from {
+                opacity: 0;
+                transform: translateY(70px) skewY(7deg)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) skewY(0)
+            }
+        }
+
+        .ticker {
+            overflow: hidden;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 17px 0;
+            white-space: nowrap;
+            color: var(--acid);
+            font-size: 12px;
+            letter-spacing: .14em;
+            text-transform: uppercase
+        }
+
+        .ticker-track {
+            display: inline-flex;
+            gap: 34px;
+            animation: marquee 24s linear infinite
+        }
+
+        .ticker b {
+            font-weight: 400;
+            color: #65695d
+        }
+
+        @keyframes marquee {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        section.content {
+            padding: 115px 5vw
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 45px
+        }
+
+        .kicker {
+            font: 11px 'DM Mono', monospace;
+            color: var(--acid);
+            text-transform: uppercase
+        }
+
+        .section-head h2 {
+            font-size: clamp(40px, 7vw, 88px);
+            letter-spacing: -.075em;
+            line-height: .9;
+            margin: 18px 0 0;
+            font-weight: 500
+        }
+
+        .section-number {
+            font: 11px 'DM Mono', monospace;
+            color: var(--muted)
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        .project {
+            border: 1px solid var(--line);
+            background: #11130f;
+            overflow: hidden;
+            position: relative;
+            min-height: 350px;
+            transition: transform .4s, border-color .4s
+        }
+
+        .project:hover {
+            transform: translateY(-6px);
+            border-color: #69772f
+        }
+
+        .art {
+            height: 290px;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            background: #14170f
+        }
+
+        .art .bigtype {
+            font-size: clamp(45px, 7vw, 100px);
+            font-weight: 700;
+            letter-spacing: -.1em;
+            line-height: .8;
+            text-align: center;
+            position: relative;
+            z-index: 1
+        }
+
+        .art .label {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            font: 10px 'DM Mono', monospace;
+            color: #d8dcce;
+            z-index: 2
+        }
+
+        .art .cross {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 49.8%, #ffffff13 50%, transparent 50.2%), linear-gradient(transparent 49.8%, #ffffff13 50%, transparent 50.2%);
+            background-size: 50px 50px;
+            mask-image: linear-gradient(to bottom, black, transparent)
+        }
+
+        .art-1 {
+            background: radial-gradient(circle at 50% 50%, #3a4b11, #10120c 60%)
+        }
+
+        .art-1 .bigtype {
+            color: var(--acid);
+            text-shadow: 0 0 45px #d7ff3f4a;
+            transform: rotate(-8deg);
+            animation: tilt 5s ease-in-out infinite
+        }
+
+
+
+        .art-2 {
+            background: linear-gradient(135deg, #171923, #0b0b10)
+        }
+
+        .art-2 .bigtype {
+            color: #f1e8dc;
+            -webkit-text-stroke: 1px #f1e8dc;
+            text-shadow: 8px 8px 0 #6356a6, 16px 16px 0 #24203a;
+            transform: rotate(7deg);
+            animation: float 5s infinite
+        }
+
+        .art-3 {
+            background: radial-gradient(circle, #442119, #130e0c 65%)
+        }
+
+        .art-3 .bigtype {
+            font-size: clamp(60px, 9vw, 130px);
+            color: #ff8a61;
+            text-shadow: 0 0 50px #ff5e373d;
+            animation: pulse 3s infinite
+        }
+
+        .art-4 {
+            background: linear-gradient(120deg, #102a30, #101513)
+        }
+
+        .art-4 .bigtype {
+            color: #8df3ee;
+            -webkit-text-stroke: 1px #8df3ee;
+            text-shadow: 0 0 28px #8df3ee80;
+            transform: scaleY(1.2);
+            animation: stretch 4s infinite
+        }
+
+        .project-info {
+            padding: 19px 20px 21px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px
+        }
+
+        .project-info h3 {
+            margin: 0 0 6px;
+            font-size: 17px;
+            font-weight: 500
+        }
+
+        .project-info p {
+            margin: 0;
+            color: var(--muted);
+            font: 10px 'DM Mono', monospace;
+            text-transform: uppercase
+        }
+
+        .arrow {
+            color: var(--acid);
+            font-size: 22px
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(220px, .72fr) 1fr 1fr;
+            gap: 4vw;
+            align-items: start
+        }
+
+        .profile-frame {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: #141512;
+            aspect-ratio: 4/5;
+            max-width: 380px
+        }
+
+        .profile-frame:before {
+            content: "";
+            position: absolute;
+            inset: -35%;
+            z-index: 1;
+            pointer-events: none;
+            background: conic-gradient(from 0deg, transparent 0 68%, #d7ff3f66 78%, transparent 88%);
+            animation: portraitSweep 8s linear infinite;
+            opacity: .55
+        }
+
+        .profile-frame:after {
+            z-index: 2;
+            box-shadow: 0 0 18px #d7ff3f22
+        }
+
+        .profile-photo {
+            animation: portraitDrift 9s ease-in-out infinite alternate;
+            will-change: transform
+        }
+
+        @keyframes portraitSweep {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes portraitDrift {
+            from {
+                transform: scale(1.02) translateY(0)
+            }
+
+            to {
+                transform: scale(1.08) translateY(-7px)
+            }
+        }
+
+        .profile-frame:after {
+            content: "AK / PORTRAIT";
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            background: #0b0c0bdd;
+            color: var(--acid);
+            font: 10px 'DM Mono', monospace;
+            padding: 9px 11px;
+            border: 1px solid #d7ff3f44
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 28%;
+            display: block;
+            filter: contrast(1.03) saturate(.9);
+            transition: transform .8s
+        }
+
+        .profile-frame:hover .profile-photo {
+            transform: scale(1.04)
+        }
+
+        .about-copy {
+            font-size: clamp(22px, 3vw, 38px);
+            line-height: 1.2;
+            letter-spacing: -.045em;
+            max-width: 650px
+        }
+
+        .about-copy em {
+            font-style: normal;
+            color: var(--acid)
+        }
+
+        .about-side {
+            padding-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 350px
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 25px
+        }
+
+        .skills span {
+            border: 1px solid #383b32;
+            border-radius: 99px;
+            padding: 9px 13px;
+            font: 10px 'DM Mono', monospace;
+            text-transform: uppercase;
+            color: #d4d7cc
+        }
+
+        .contact {
+            background: var(--acid);
+            color: #11130d;
+            padding: 90px 5vw 35px
+        }
+
+        .contact .kicker {
+            color: #343e0b
+        }
+
+        .contact h2 {
+            font-size: clamp(55px, 11vw, 150px);
+            line-height: .8;
+            letter-spacing: -.1em;
+            font-weight: 600;
+            margin: 35px 0 55px
+        }
+
+        .contact h2 span {
+            display: inline-block;
+            transition: transform .4s
+        }
+
+        .contact h2:hover span {
+            transform: translateX(16px)
+        }
+
+        .contact-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border-top: 1px solid #879e2c;
+            padding-top: 20px;
+            font: 10px 'DM Mono', monospace;
+            text-transform: uppercase
+        }
+
+        .contact a.mail {
+            font-size: 17px;
+            border-bottom: 1px solid #11130d;
+            padding-bottom: 6px
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity .8s, transform .8s
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        @keyframes tilt {
+            50% {
+                transform: rotate(8deg) scale(1.05)
+            }
+        }
+
+        @keyframes stretch {
+            50% {
+                transform: scaleY(.8) scaleX(1.1)
+            }
+        }
+
+        @media(max-width:900px) {
+            .about-grid {
+                grid-template-columns: minmax(180px, .7fr) 1fr
+            }
+
+            .about-side {
+                grid-column: 2
+            }
+
+            .profile-frame {
+                grid-row: span 2
+            }
+        }
+
+        @media(max-width:700px) {
+            .about-grid {
+                grid-template-columns: 1fr
+            }
+
+            .about-side {
+                grid-column: auto
+            }
+
+            .profile-frame {
+                grid-row: auto;
+                max-width: 100%;
+                width: min(100%, 380px);
+                aspect-ratio: 4/3
+            }
+
+            .profile-photo {
+                object-position: center 28%
+            }
+
+            .nav {
+                height: 65px;
+                padding: 0 5vw
+            }
+
+            .navlinks {
+                gap: 12px
+            }
+
+            .navlinks a:nth-child(2) {
+                display: none
+            }
+
+            .availability {
+                display: none
+            }
+
+            .hero {
+                min-height: 85vh;
+                padding-top: 8vh
+            }
+
+            .hero h1 {
+                font-size: clamp(56px, 15vw, 100px);
+                margin: 10vh 0 7vh
+            }
+
+            .hero-image-wrapper {
+                position: absolute;
+                width: min(42vw, 550px);
+                aspect-ratio: 1;
+                right: 7%;
+                top: 19%;
+                z-index: 1;
+                overflow: hidden;
+                border-radius: 16px;
+            }
+
+            .hero-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+
+            .hero-image-wrapper {
+                width: 70vw;
+                right: -8%;
+                top: 23%;
+            }
+
+            .hero-bottom {
+                align-items: start;
+                flex-direction: column
+            }
+
+            .scrollhint {
+                margin-top: 15px
+            }
+
+            .projects {
+                grid-template-columns: 1fr
+            }
+
+            .project {
+                min-height: 0
+            }
+
+            .art {
+                height: 250px
+            }
+
+            section.content {
+                padding: 80px 5vw
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 25px
+            }
+
+            .section-head {
+                margin-bottom: 30px
+            }
+
+            .contact {
+                padding-top: 75px
+            }
+
+            .contact-bottom {
+                flex-direction: column
+            }
+
+            .contact h2 {
+                margin: 45px 0
+            }
+
+            .intro {
+                font-size: 14px
+            }
+        }
+        
+        
+        
+/* Social and resource links */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    align-items: center;
+}
+
+.social-link {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #879e2c;
+    font: 11px 'DM Mono', monospace;
+    transition: color 0.25s ease,
+                transform 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.social-link:hover {
+    color: #343e0b;
+    border-color: #11130d;
+    transform: translateY(-3px);
+}
+
+.social-link:focus-visible {
+    outline: 2px solid #11130d;
+    outline-offset: 5px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .social-links {
+        gap: 16px;
+    }
+
+    .social-link {
+        font-size: 10px;
+    }
+}
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <nav class="nav"><a class="logo" href="#top">AK<span>®</span> / STUDIO</a>
+        <div class="navlinks"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact ↗</a></div>
+        <div class="availability"><i class="dot"></i> OPEN TO OPPORTUNITIES</div>
+    </nav>
+    <main id="top">
+        <section class="hero">
+            <div class="eyebrow">Independent creative · India ·GOA </div>
+            <div class="hero-image-wrapper">
+                <img src="assets/profile-green.png" alt="Hero Visual" class="hero-image">
+            </div>
+            <h1>HEY <br><span class="outline">THIS </span><br><span class="acid">IS AKASH</span></h1>
+            <div class="hero-bottom">
+                <p class="intro">I  <strong>Akash kumar yaadav</strong><br>Currently pursing B.E in Computer Science and Engineering at <strong>Padre Conceicao College of Engineering</strong>
+                Mastering the skills such as <strong> Backend, Frontend , Learning about LLM And Rag , UI/UX</strong>   </p>
+                <div class="scrollhint"><span></span> SCROLL TO EXPLORE ↓</div>
+            </div>
+        </section>
+        <div class="ticker">
+            <div class="ticker-track"><span>MOTION DESIGN</span><b>✳</b><span>VISUAL
+                    EXPERIMENTS</span><b>✳</b><span>Mastering DSA</span><b>✳</b>
+                <b>✳</b><span>MOTION DESIGN</span><b>✳</b><span>PYTHON
+                </span><b>✳</b><span>CREATIVE TECHNOLOGY</span><b>✳</b><span>LEARNING BACKEND</span><b>✳</b>
+            </div>
+        </div>
+        <section class="content" id="work">
+            <div class="section-head reveal">
+                <div>
+                    <div class="kicker">01 / Selected experiments</div>
+                    <h2>Things that<br>move.</h2>
+                </div>
+                <div class="section-number">[ 001 — 004 ]</div>
+            </div>
+            <div class="projects">
+                <article class="project reveal">
+                    <div class="art art-1"><span class="label">EXPERIMENT 001</span>
+                        <div class="cross"></div>
+                        <div class="bigtype">UI-UX<br>MiNi Project.</div>
+                    </div>
+                    <div class="project-info">
+                        <div>
+                            <h3>Projects</h3>
+                            
+                        </div><span class="arrow">↗</span>
+                    </div>
+                </article>
+                <article class="project reveal">
+                    <div class="art art-2"><span class="label">Archievements</span>
+                        <div class="cross"></div>
+                        <div class="bigtype">Certificates<br>REWARDS</div>
+                    </div>
+                    <div class="project-info">
+                        <div>
+    
+
+                        </div><span class="arrow">↗</span>
+                    </div>
+                </article>
+                <article class="project reveal">
+                    <div class="art art-3"><span class="label">WEB-DEVELOPMENT</span>
+                        <div class="cross"></div>
+                        <div class="bigtype">WEB <br> DEVELOPMENT <br> PROJECT</div>
+                    </div>
+                    <div class="project-info">
+                        <div>
+                            <h3>WEB-DEVELOPMENT PROJECT </h3>
+                            <p>Motion identity · Concept</p>
+                        </div><span class="arrow">↗</span>
+                    </div>
+                </article>
+                <article class="project reveal">
+                    <div class="art art-4"><span class="label">EXPERIMENT 004 / FUTURE</span>
+                        <div class="cross"></div>
+                        <div class="bigtype">NEXT<br>FRAME</div>
+                    </div>
+                    <div class="project-info">
+                        <div>
+                            <h3>Next Frame</h3>
+                            <p>Creative tech · Concept</p>
+                        </div><span class="arrow">↗</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="content" id="about">
+            <div class="section-head reveal">
+                <div>
+                    <div class="kicker">02 / A little about me</div>
+                    <h2>Curious by<br>default.</h2>
+                </div>
+                <div class="section-number">[ THE HUMAN ]</div>
+            </div>
+            <div class="about-grid">
+                <div class="profile-frame reveal"><img class="profile-photo" alt="Akash in a cinematic studio portrait"
+                        src="assets/profile-green.png"></div>
+                <p class="about-copy reveal">Hey, I’m Akash — a student and creative builder interested in <em>design,
+                        animation, code,</em> and ideas that make people stop scrolling.</p>
+                <div class="about-side reveal">This portfolio is a living playground for visual experiments and future
+                    projects. The work shown here is concept work / placeholders, ready to be replaced with real client
+                    work or personal projects.
+                    <div class="skills"><span>Motion Design</span><span>Visual
+                            Design</span><span>Creative Coding</span><span>Web Experiences</span><span>Learning in
+                            Public</span></div>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <div class="kicker">03 / Have a good idea?</div>
+            <h2>LET’S MAKE<br><span>IT MOVE ↗</span></h2>
+            
+<div class="contact-bottom">
+    <div class="social-links">
+        <a class="social-link"
+           href="mailto:ay1236694@gmail.com">
+            EMAIL ↗
+        </a>
+
+        <a class="social-link"
+           href="https://github.com/yadavakash6002"
+           target="_blank"
+           rel="noopener noreferrer">
+            GITHUB ↗
+        </a>
+
+        <a class="social-link"
+           href="https://www.linkedin.com/in/akash-kumar-yadav-120495216/"
+           target="_blank"
+           rel="noopener noreferrer">
+            LINKEDIN ↗
+        </a> 
+
+
+        <a class="social-link"
+           href="https://www.instagram.com/in/mr_akash6002/"
+           target="_blank"
+           rel="noopener noreferrer">
+            INSTAGRAM ↗
+        </a>
+
+        <a class="social-link"
+           href="https://leetcode.com/YOUR-LEETCODE-USERNAME/"
+           target="_blank"
+           rel="noopener noreferrer">
+            LEETCODE ↗
+        </a>
+
+        
+    </div>
+
+    <span>Akash Kumar Yadav · 2026</span>
+
+    <a href="#top">BACK TO TOP ↑</a>
+</div>
+
+                    ↗</a><span>Akash Kumar Yadav · 2026</span><a href="#top">BACK TO TOP ↑</a> </div>
+
+        </section>
+    </main>
+    <script>
+        // Scroll reveal animation
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+
+        document.querySelectorAll(".reveal").forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Hero orb mouse-follow animation
+        // Hero image mouse-follow animation
+        const heroImg = document.querySelector(".hero-image-wrapper");
+
+        window.addEventListener("pointermove", (event) => {
+            if (!heroImg || window.innerWidth <= 700) return;
+
+            const x = (event.clientX / window.innerWidth - 0.5) * 5;
+            const y = (event.clientY / window.innerHeight - 0.5) * 5;
+
+            heroImg.style.marginLeft = `${x}px`;
+            heroImg.style.marginTop = `${y}px`;
+        });
+
+        // Studio portrait animation
+        const portrait = document.querySelector(".profile-photo");
+
+        if (portrait) {
+            portrait.addEventListener("mouseenter", () => {
+                portrait.style.transform = "scale(1.06)";
+            });
+
+            portrait.addEventListener("mouseleave", () => {
+                portrait.style.transform = "scale(1)";
+            });
+        }
+
+        // Project card hover animation
+        document.querySelectorAll(".project").forEach((project) => {
+            project.addEventListener("mouseenter", () => {
+                project.style.transform = "translateY(-6px)";
+            });
+
+            project.addEventListener("mouseleave", () => {
+                project.style.transform = "translateY(0)";
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener("click", (event) => {
+                const targetId = link.getAttribute("href");
+                const target = document.querySelector(targetId);
+
+                if (target) {
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
